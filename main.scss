@@ -1,0 +1,356 @@
+@import url( 'https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+$font-stack: 'Open Sans', sans-serif;
+$font-weight-semibold: 600;
+$primary-color: #ffffff;
+$fs14: 14px;
+$borderPixelOffset: 3px;
+$lightTransparentBorderBox: 1px solid #18181b;
+$common-linear-gradient: linear-gradient(to right, #191a1c 0%, #121315 100%);
+
+body {
+  font-family: $font-stack;
+  color: $primary-color;
+  background-color: #0b1115;
+  width: 1000px;
+  margin: auto;
+}
+/*title, Social and Search*/
+.navClass {
+  margin: 10px 0;
+
+  .logo {
+    width: 25%;
+    border: 0;
+  }
+
+  .socialAndSearch {
+    float: right;
+    display: flex;
+    margin-top: 20px;
+  }
+
+  .socialBar {
+    height: 30px;
+    width: 30px;
+    display: block;
+    background: url("assets/social-icons-sprite.png") 0 0;
+    background-repeat: no-repeat;
+    background-color: #4c738e;
+    border-radius: 8px;
+    border-style: none;
+    margin: 0 10px 0 0;
+  }
+
+  $socialIcons: 'twitter' left,'facebook' center,'youtube' right;
+  @each $currentSoc in $socialIcons {
+    $i: index($socialIcons, $currentSoc);
+    .#{nth($currentSoc,1)} {
+      background-position: center nth($currentSoc,2);
+    }
+  }
+
+  .searchField {
+    margin: 0 5px;
+    border-radius: 4px;
+    width: 200px;
+  }
+
+  .searchButton {
+    border-radius: 4px;
+    border-style: none;
+    background-color: #4c738e;
+    color: $primary-color;
+    width: 80px;
+  }
+}
+/*Navigation*/
+.navMenu {
+  width: 1000px;
+  border-bottom: 3px solid #2b3742;
+  height: 60px;
+  margin-top: 20px;
+
+  li {
+    border-right: 1px solid transparent;
+    border-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, #0e0e0e 53%,rgba(0, 0, 0, 0) 100%);
+    border-image-slice: 1;
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  height: 60px;
+  background: repeating-linear-gradient(-55deg, #222, #222 2px, #333 2px, #333 3px);
+}
+
+li {
+  float: left;
+
+  a {
+    font-size: $fs14;
+    font-weight: $font-weight-semibold;
+    font-size: 13px;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 5px 16px;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #111;
+    }
+  }
+}
+
+.icon-bar {
+  height: 30px;
+  width: 30px;
+  margin: auto;
+  display: block;
+  //border: 1px solid #888;
+  background: url("assets/nav-icons-sprite.png") 0 0;
+  background-size: 90px;
+}
+
+
+$navIcons: 'snowflakes' left,'magnets' center,'liquids' right;
+@each $currentNav in $navIcons {
+  $i: index($navIcons, $currentNav);
+  .icon-#{nth($currentNav,1)} {
+    background-position: center nth($currentNav,2);
+  }
+}
+
+
+.dropbtn,
+li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 5px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  display: inline-block;
+
+  &:hover {
+    display: block;
+  }
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #3e3e3e;
+  min-width: 120px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+
+  a {
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+
+    &:hover {
+      background-color: #111;
+    }
+  }
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/***News Section*/
+
+.importantNews {
+  background: url("assets/news-bg.png");
+  background-repeat: repeat;
+  border: $lightTransparentBorderBox;
+  margin-bottom: 10px;
+
+
+  h1 {
+    padding: 10px 30px;
+  }
+
+  p {
+    font-size: 14px;
+    font-family: $font-stack;
+    color: #cfcfcf;
+    padding: 0 30px;
+  }
+}
+
+.author {
+  float: right;
+  font-size: 12px;
+  font-family: $font-stack;
+  color: #bababa;
+
+  a {
+    color: #5f7a9e;
+    text-decoration: none;
+  }
+}
+
+.sectionbackground {
+  background: $common-linear-gradient;
+  margin-top: 10px;
+  font-weight: $font-weight-semibold;
+  font-size: 20px;
+}
+
+.calcMod {
+  width: 965px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 43px;
+  font-weight: $font-weight-semibold;
+  font-size: 25px;
+}
+
+.readMoreButton {
+  border-radius: 4px;
+  border-style: none;
+  background-color: #4c738e;
+  color: $primary-color;
+  height: 25px;
+  width: 100px;
+  margin-left: 85%;
+  margin-bottom: 20px;
+}
+/***talent calc**/
+
+.talentcalculator {
+  border: $lightTransparentBorderBox;
+  text-align: center;
+  background: url("assets/talent-calc-bg.png");
+  background-repeat: repeat;
+
+  .calcBack {
+    width: 900px;
+    height: 300px;
+  }
+}
+
+.path {
+  width: 650px;
+  margin-left: 17px;
+
+  span {
+    margin-right: 30px;
+  }
+
+  hr {
+    width: 85px;
+    height: 10px;
+    margin: 0;
+    display: inline-block;
+    border: none;
+  }
+
+  .tier1 {
+    background: linear-gradient(to right, #494242 0%, #313335 100%);
+  }
+
+  .tier2,
+  .tier3 {
+    background: linear-gradient(to right, #1c1d1f 0%, #1c1d1f 100%);
+  }
+
+  button {
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    border: $borderPixelOffset solid transparent;
+    border-image: linear-gradient(to top, #4b4b4b 0%, #0e0e0e 50%, #4b4b4b 61%, #4b4b4b 100%);
+    border-image-slice: 1;
+    background: url("assets/talent-icons-sprite.png");
+    margin-left: 0;
+    vertical-align: middle;
+  }
+
+  .highlightBorder {
+    border: $borderPixelOffset solid transparent;
+    border-image: linear-gradient(to top, #70adef 0%, #0e0e0e 50%, #70adef 61%, #70adef 100%);
+    border-image-slice: 1;
+  }
+  $talentIcons: 'blocks','fork','cake', 'crown', 'ship', 'goggles', 'lightning', 'skull';
+  @each $currentTalent in $talentIcons {
+    $i: index($talentIcons, $currentTalent);
+    $i: $i * -50 + 50;
+
+    .#{$currentTalent} {
+      background-position-x: $i - $borderPixelOffset;
+    }
+  }
+
+  .on {
+    background-position-y: top;
+  }
+
+  .off {
+    background-position-y: bottom;
+  }
+}
+
+.track1 {
+  margin-top: 90px;
+}
+
+.track2 {
+  margin-top: 90px;
+}
+
+.pointBox {
+  width: 176px;
+  height: 90px;
+  background-color: black;
+  float: right;
+  font-size: 23px;
+  font-family: $font-stack;
+
+  p,
+  span.mutablePoint {
+    margin-top: 5px;
+    margin-bottom: 0px;
+    color: #ffffff;
+  }
+
+  span {
+    color: #4c738e;
+  }
+}
+/***botttom Nav***/
+.bottomNav {
+  padding: 5px 0;
+  background: $common-linear-gradient;
+
+  ul {
+    background: $common-linear-gradient;
+      height: 30px;
+  }
+
+  li, p {
+    color: #757577;
+  }
+
+  p {
+    margin-top: 0;
+    margin-left: 15px;
+    font-size: 14px;
+  }
+}
+
+.bottomSocial {
+  float: right;
+  display: flex;
+  margin-top: 0;
+}
